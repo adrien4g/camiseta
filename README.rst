@@ -17,7 +17,7 @@ _____________
         with Body():
             with Tag('h1', Class='title'):
                 Text('Hello Camiseta :D')
-    Doc()
+    Server()
     
 
 How to use
@@ -112,10 +112,10 @@ insert css
                 # Importing css from file
                 File('style.css')
 
-Exporting html
-______________
 
-To access the html file you need to use the function ``Doc``
+HTTP server with your html response
+___________________________________
+To acess the html file you need to use the function ``Server``
 
 .. code:: python
 
@@ -124,7 +124,32 @@ To access the html file you need to use the function ``Doc``
     with Html():
         with Body():
             pass
-    Doc()
+    Server()
+
+Parameters
+~~~~~~~~~~
+
+.. list-table::
+
+  * - Name
+    - Default value
+    
+  * - port
+    - 3500
+
+Exporting html
+______________
+
+To save the html file you need to use the function ``Save``
+
+.. code:: python
+
+    from camiseta import *
+
+    with Html():
+        with Body():
+            pass
+    Save()
 
 Parameters
 ~~~~~~~~~~
@@ -169,4 +194,4 @@ ___________
                         with Tag('p', 'box_image'):
                             Text('Container Image')
     
-    Doc()
+    Server()

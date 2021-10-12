@@ -22,4 +22,5 @@ with Html(True):
                     with Tag('p', 'box_image'):
                         Text('Container Image')
 
-Doc()
+
+Server()

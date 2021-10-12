@@ -1,12 +1,12 @@
 from camiseta.tempfile import *
 import pathlib, os
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import webbrowser
 
-class Doc:
+class Save:
     def __init__(self, path='', file_name = ''):
         self.path = path
-        self.name = file_name
-
-        # Validating path
+        self.name = file_name        
         if not os.path.isdir(self.path) and self.path != '':
             return print('Invalid output path {}'.format(self.path))
         else:
@@ -30,3 +30,19 @@ class File:
                 temp_file.write(file.read())
         except:
             print('Error loading file {}. Ignoring.'.format(self.path))
+
+class Server:
+    def __init__(self, port = 3500):
+        temp_file.seek(0)
+        self.port = port
+        server = HTTPServer(('', self.port), HelloHandler)
+        print('Running')
+        webbrowser.open_new_tab('http://127.0.0.1:{}/'.format(self.port))
+        server.serve_forever()
+
+class HelloHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(temp_file.read().encode())

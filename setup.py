@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 DESCRIPTION = 'Framework to generate an html file with python'
 LONG_DESCRIPTION = 'Framework to generate an html file with python'
 
