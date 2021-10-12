@@ -138,7 +138,7 @@ Parameters
     - Root of your project
     
   * - file_name
-  * - index.html
+    - index.html
 
 Example in example/example.py
 ___________
